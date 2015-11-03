@@ -11,16 +11,10 @@ class Calculator
   end
 
   def valid_input?
-    begin
-      if(!@value1.to_s.match(/^\d+$/) || !@value2.to_s.match(/^\d+$/))
-        raise "Invalid value for operand 1 or operand 2" 
-      elsif(!@operand.to_s.match(/^\+|\-|\*|\/+$/))
-        raise "Invalid operator"
-      else
-        true
-      end
-    rescue Exception
-      STDERR.puts "Invalid input error: #{$!}"
-    end
+    raise "Invalid value for operand 1 or operand 2" if(!@value1.to_s.match(/^\d+$/) || !@value2.to_s.match(/^\d+$/)) 
+    raise "Invalid operator" if(!@operand.to_s.match(/^\+|\-|\*|\/+$/))
+    true
+  rescue Exception
+    STDERR.puts "Invalid input error: #{$!}"
   end
 end
