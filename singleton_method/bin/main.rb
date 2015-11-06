@@ -4,11 +4,17 @@ str = "I am a string"
 str2 = "And I am the other string"
 
 def str.twice
-  self.downcase + ", " + self.downcase
+  downcase + ", " + downcase
 end
 
-p String.twice_capitalise str
-p str.twice
+class << str2
+  def twice_capitalise
+    upcase + ". " + upcase
+  end
+end
 
-p String.twice_capitalise str2
+p str.twice
+p str2.twice_capitalise
+
 p str2.twice
+p str.twice_capitalise
